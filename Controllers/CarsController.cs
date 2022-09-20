@@ -51,7 +51,7 @@ namespace AutoSales.Controllers
                     },
                 };
         [HttpGet]
-        public IEnumerable<CarDto> GetCars() => cars;
+        public List<CarDto> GetCars() => cars;
     }
 }
 

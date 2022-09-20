@@ -9,7 +9,7 @@ namespace AutoSales.Controllers
     {
         private static List<ShopOrderDto> shopCarts = new List<ShopOrderDto>();
 
-        private int NextCarItemId => shopCarts.Count() == 0 ? 1 : shopCarts.Max(x => x.Id) + 1;
+        private int NextCarItemId => shopCarts.Count == 0 ? 1 : shopCarts.Max(x => x.Id) + 1;
 
         [HttpPost]
         public IActionResult Post([FromBody] ShopOrderDto shopOrder)

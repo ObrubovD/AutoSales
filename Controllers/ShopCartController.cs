@@ -13,9 +13,9 @@ namespace AutoSales.Controllers
        
         // GET: api/<ShopCartController>
         [HttpGet]
-        public IEnumerable<ShopCartItemDto> Get() => shopCarts;
+        public List<ShopCartItemDto> Get() => shopCarts;
 
-        private int NextCarItemId => shopCarts.Count() == 0 ? 1 : shopCarts.Max(x => x.Id) + 1;
+        private int NextCarItemId => shopCarts.Count == 0 ? 1 : shopCarts.Max(x => x.Id) + 1;
 
         [HttpPost("AddCarItem")]
         public IActionResult Post(ShopCartItemDto car)
