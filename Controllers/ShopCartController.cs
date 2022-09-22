@@ -7,24 +7,18 @@ namespace AutoSales.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ShopCartController : ControllerBase
+    public class ShopCartController : BaseController
     {
-        private static List<ShopCartItemDto> shopCarts = new List<ShopCartItemDto>();
-       
-        // GET: api/<ShopCartController>
         [HttpGet]
-        public List<ShopCartItemDto> Get() => shopCarts;
-
-        private int NextCarItemId => shopCarts.Count == 0 ? 1 : shopCarts.Max(x => x.Id) + 1;
+        public List<CarDto> Get() => shopCarts;
 
         [HttpPost("AddCarItem")]
-        public IActionResult Post(ShopCartItemDto car)
+        public IActionResult Post(CarDto car)
         {
-            shopCarts.Add(new ShopCartItemDto { Id = NextCarItemId, Name = car.Name, Price = car.Price, Img = car.Img });
+            shopCarts.Add(new CarDto { Id = NextCarItemId, Name = car.Name, Price = car.Price, Img = car.Img });
             return Ok();
         }
 
-        //DELETE api/<ShopCartController>/5
         [HttpDelete]
         public IActionResult Delete([FromQuery] int id)
         {
