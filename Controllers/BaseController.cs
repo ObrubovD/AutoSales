@@ -8,7 +8,7 @@ namespace AutoSales.Controllers
     [ApiController]
     public class BaseController : ControllerBase
     {
-        public  static List<CarDto> cars = new List<CarDto>{
+        protected readonly List<CarDto> cars = new List<CarDto>{
                     new CarDto {
                         Id=1,
                         Name = "Mitsubishi Lancer X",
@@ -52,9 +52,9 @@ namespace AutoSales.Controllers
                     },
                 };
 
-        public static List<CarDto> shopCarts = new List<CarDto>();
-        public static List<ShopOrderDto> shopOrders = new List<ShopOrderDto>();
-        public int NextCarItemIdOrder => shopOrders.Count == 0 ? 1 : shopOrders.Max(x => x.Id) + 1;
-        public int NextCarItemId => shopCarts.Count == 0 ? 1 : shopCarts.Max(x => x.Id) + 1;
+        protected static List<CarDto> shopCarts = new List<CarDto>();
+        protected static List<ShopOrderDto> shopOrders = new List<ShopOrderDto>();
+        protected int NextCarItemIdOrder => shopOrders.Count == 0 ? 1 : shopOrders.Max(x => x.Id) + 1;
+        protected int NextCarItemId => shopCarts.Count == 0 ? 1 : shopCarts.Max(x => x.Id) + 1;
     }
 }
