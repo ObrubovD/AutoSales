@@ -52,8 +52,8 @@ namespace AutoSales.Controllers
                     },
                 };
 
-        protected static List<CarDto> shopCarts = new List<CarDto>();
-        protected static List<ShopOrderDto> shopOrders = new List<ShopOrderDto>();
+        protected static readonly List<CarDto> shopCarts = new List<CarDto>();
+        protected static readonly List<ShopOrderDto> shopOrders = new List<ShopOrderDto>();
         protected int NextCarItemIdOrder => shopOrders.Count == 0 ? 1 : shopOrders.Max(x => x.Id) + 1;
         protected int NextCarItemId => shopCarts.Count == 0 ? 1 : shopCarts.Max(x => x.Id) + 1;
     }
